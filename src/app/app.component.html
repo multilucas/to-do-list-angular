@@ -1,20 +1,33 @@
-<mat-expansion-panel>
-  <mat-chip-listbox aria-label="Fish selection">
-    <mat-chip-option selected>A Fazer</mat-chip-option>
-    <mat-chip-option>Fazendo</mat-chip-option>
-    <mat-chip-option color="accent">Concluido</mat-chip-option>
-  </mat-chip-listbox>
+<main id="main">
+  <section>
+    <h2 class="container mat-elevation-z8 total">
+      Total de tarefas: {{totalDeTarefas}}
+    </h2>
+  </section>
 
 
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      <h1>Ligar pra vovó</h1>
-    </mat-panel-title>
-    <mat-panel-description>
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-</mat-expansion-panel>
 
-<button (click)="openDialog()" mat-fab color="primary">
-  <mat-icon>add</mat-icon>
-</button>
+  <div *ngFor="let tarefa of tarefas">
+    <mat-expansion-panel>
+      <h2>{{tarefa.descricao}}</h2>
+      <mat-chip-listbox aria-label="Fish selection">
+        <mat-chip-option selected>A Fazer</mat-chip-option>
+        <mat-chip-option>Fazendo</mat-chip-option>
+        <mat-chip-option color="accent">Concluido</mat-chip-option>
+      </mat-chip-listbox>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h1>{{tarefa.name}}</h1>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel>
+
+
+  </div>
+
+  <button (click)="openDialog()" mat-fab color="primary">
+    <mat-icon>add</mat-icon>
+  </button>
+</main>
