@@ -36,8 +36,29 @@ section {
   margin: 8px;
   display: flex;
   align-items: center;
+  padding: 4px;
 }
 
 .total {
   background-color: #23c4fe;
+}
+
+.pendentes {
+  background-color: #fef57f;
+}
+
+
+.andamento {
+  background-color: #fadefd;
+
+}
+
+.concluido {
+
+  background-color: #d0f3e8;
+}
+
+.title {
+  margin-bottom: 24px;
+  margin-top: 24px;
 }

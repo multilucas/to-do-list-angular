@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Task } from 'src/Task';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'todo-list';
   constructor(public dialog: MatDialog) { }
@@ -27,7 +29,20 @@ export class AppComponent {
   get totalDeTarefas(): number {
     return this.tarefas.length
   }
+
   alterarSituacao(tarefa: Task, situacao: string): void{
-    tarefa.situacao = situacao
+    tarefa.situacao = situacao;
   }
+
+  get totalDePendentes(): number {
+    return this.tarefas.filter(tarefa => tarefa.situacao === 'Pendente').length;
+  }
+
+  get totalDeFazendo(): number {
+    return this.tarefas.filter(tarefa => tarefa.situacao === 'Fazendo').length;
+  }
+  get totalDeConcluido(): number {
+    return this.tarefas.filter(tarefa => tarefa.situacao === 'Concluido').length;
+  }
+
 }
